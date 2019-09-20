@@ -38,9 +38,9 @@ public class TokenAuthFilter extends AccessControlFilter {
 
     @Override
     protected boolean onAccessDenied(ServletRequest servletRequest, ServletResponse servletResponse)  {
-        HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
-        String authToken = httpRequest.getHeader(Constants.AUTHORIZATION);  //获取token
         try {
+            HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
+            String authToken = httpRequest.getHeader(Constants.AUTHORIZATION);  //获取token
             if (null != authToken && !StringUtils.isEmpty(authToken)) {
                 StringRedisTemplate stringRedisTemplate = SpringContextUtil.getBean(StringRedisTemplate.class);
                 String loginKey = String.format(Constants.AUTH_TOKEN_KEY, authToken);

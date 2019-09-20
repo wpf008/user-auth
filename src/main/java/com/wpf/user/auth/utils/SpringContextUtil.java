@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @author Wang pengfei
  * @date 2019/9/20 15:25
  * @ClassName: user-auth
- * @Description:
+ * @Description: 解决springboot 中 filter 不能注入bean的工具类
  */
 @Component
 public class SpringContextUtil implements ApplicationContextAware {
